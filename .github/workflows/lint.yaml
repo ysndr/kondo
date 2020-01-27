@@ -2,6 +2,8 @@ name: Kondo Lints
 on: [push]
 jobs:
   lint:
+    name: Lint and Formatting
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
       uses: actions/checkout@v2

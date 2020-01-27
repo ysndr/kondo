@@ -2,6 +2,8 @@ name: Kondo Tests
 on: [push]
 jobs:
   test-nightly:
+    name: Test using nighly
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install toolchain
@@ -15,6 +17,8 @@ jobs:
         command: test
         args: --all
   test-beta:
+    name: Test using beta
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install toolchain
@@ -28,6 +32,8 @@ jobs:
         command: test
         args: --all
   test-stable:
+    name: Test using stable
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install toolchain
