@@ -1,0 +1,42 @@
+name: Kondo Tests
+on: [push]
+jobs:
+  test-nightly:
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: nightly
+        override: true
+    - name: Execute tests
+      uses: actions-rs/cargo@v1
+      with:
+        command: test
+        args: --all
+  test-beta:
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: beta
+        override: true
+    - name: Execute tests
+      uses: actions-rs/cargo@v1
+      with:
+        command: test
+        args: --all
+  test-stable:
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+    - name: Execute tests
+      uses: actions-rs/cargo@v1
+      with:
+        command: test
+        args: --all
